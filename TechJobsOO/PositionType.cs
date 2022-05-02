@@ -13,11 +13,23 @@ namespace TechJobsOO
             nextId++;
         }
 
+        // TODO: Add custom Equals(), GetHashCode(), and ToString() methods. ✅
+
         public PositionType(string value) : this()
         {
             Value = value;
         }
 
-        // TODO: Add custom Equals(), GetHashCode(), and ToString() methods.
+        public override bool Equals(object obj)
+        {
+            return obj is PositionType type &&
+                   Value == type.Value;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Value);
+        }
+
     }
 }
