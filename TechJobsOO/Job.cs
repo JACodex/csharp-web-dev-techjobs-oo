@@ -15,7 +15,8 @@ namespace TechJobsOO
         // TODO: Add the two necessary constructors. ✅
         public Job()
         {
-            int id = nextId;
+            Id = nextId;
+            //int id = nextId;
             nextId++;
         }
         // TODO: Generate Equals() and GetHashCode() methods. ✅
