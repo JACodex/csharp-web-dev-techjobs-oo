@@ -42,11 +42,19 @@ namespace TechJobTests
         }
 
         [TestMethod]
+        public void TestJobEmptyToString() //TODO: If a field is empty, the method should add, “Data not available” after the label. ✅
+        {
+            Job job1 = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            //Assert.AreEqual("ID: \nName: \nEmployer: \nLocation: \nPostion Type: \nCore Competency: ", job1.ToString());
+            Assert.AreEqual("ID: 6\nName: Data not available\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n", job1.ToString());
+        }
+
+            [TestMethod]
         public void TestJobToString()
         {
             Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
             //Assert.AreEqual("ID: \nName: \nEmployer: \nLocation: \nPostion Type: \nCore Competency: ", job1.ToString());
-            Assert.AreEqual("3\nProduct tester\nACME\nDesert\nQuality control\nPersistence\n", job1.ToString());
+            Assert.AreEqual("ID: 3\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n", job1.ToString());
 
         }
     }
