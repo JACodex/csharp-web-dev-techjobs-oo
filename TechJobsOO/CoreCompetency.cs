@@ -14,7 +14,7 @@ namespace TechJobsOO
             id = nextId;
             nextId++;
         }
-
+        //test commit
         public CoreCompetency(string v) : this()
         {
             value = v;
