@@ -22,6 +22,16 @@ namespace TechJobsOO
         // TODO: Generate Equals() and GetHashCode() methods. ✅
         public Job(string name) : this() { Name = name; }
 
+        //TODO: Each Job object should contain six properties—Id, Name, EmployerName, EmployerLocation, JobType, and JobCoreCompetency.
+        public Job(string name, Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency jobCoreCompetency) : this() 
+        { 
+            Name = name; 
+            EmployerName = employerName;
+            EmployerLocation = employerLocation;
+            JobType = jobType;
+            JobCoreCompetency = jobCoreCompetency;
+        }
+
         public override bool Equals(object obj)
         {
             return obj is Job job &&

@@ -5,7 +5,7 @@ namespace TechJobsOO
     {
         private int id { get;}
         private static int nextId = 1;
-        private string value { get; set; }
+        public string value { get; set; } //changed to public from private 🎯
 
         // TODO: Change the fields to auto-implemented properties. ✅
 

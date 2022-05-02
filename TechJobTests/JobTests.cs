@@ -20,5 +20,16 @@ namespace TechJobTests
             Job job2 = new Job();
             Assert.IsFalse(job1.Equals(job2));
         }
+
+        [TestMethod] //TODO: Each Job object should contain six properties—Id, Name, EmployerName, EmployerLocation, JobType, and JobCoreCompetency. ✅
+        public void TechjobConstructorSetsAllFields()
+        {
+            Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            Assert.IsTrue(job1.Name == "Product tester");
+            Assert.IsTrue(job1.EmployerName.Value == "ACME");
+            Assert.IsTrue(job1.EmployerLocation.Value == "Desert");
+            Assert.IsTrue(job1.JobType.Value == "Quality control");
+            Assert.IsTrue(job1.JobCoreCompetency.value == "Persistence");
+        }
     }
 }
