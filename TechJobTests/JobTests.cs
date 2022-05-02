@@ -31,5 +31,16 @@ namespace TechJobTests
             Assert.IsTrue(job1.JobType.Value == "Quality control");
             Assert.IsTrue(job1.JobCoreCompetency.value == "Persistence");
         }
+
+        [TestMethod] //TODO: Two Job objects are considered equal if they have the same id value, even if one or more of the other fields differ || should return False only if id != id ✅
+        public void TestJobsForEquality()
+        {
+            Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            Job job2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+            Assert.IsFalse (job1.Equals(job2));
+        }
+
+
     }
 }
