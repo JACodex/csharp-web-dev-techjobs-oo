@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace TechJobsOO
 {
     public class Job
@@ -43,5 +45,35 @@ namespace TechJobsOO
             return HashCode.Combine(Id);
         }
 
+        public override string ToString()
+        {
+            //string output = "ID: \nName: \nEmployer: \nLocation: \nPostion Type: \nCore Competency: ";
+            string output = "";
+            //foreach(var property in typeof(Job).GetProperties())
+            //{
+            //    if (property != null)
+            //    {
+            //        output += $"{property.GetAccessors(true)}\n";
+            //    }
+            //}
+
+            List<object> arguments = new List<object>();
+            arguments.Add(Id);
+            arguments.Add(Name);
+            arguments.Add(EmployerName);
+            arguments.Add(EmployerLocation);
+            arguments.Add(JobType);
+            arguments.Add(JobCoreCompetency);
+
+            foreach(object arg in arguments)
+            {
+                if(arg != null || arg != "")
+                {
+                    output += $"{arg}\n";
+                }
+            }
+            
+            return output;
+        }
     }
 }
