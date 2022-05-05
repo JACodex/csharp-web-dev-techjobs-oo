@@ -29,7 +29,7 @@ namespace TechJobTests
             Assert.IsTrue(job1.EmployerName.Value == "ACME");
             Assert.IsTrue(job1.EmployerLocation.Value == "Desert");
             Assert.IsTrue(job1.JobType.Value == "Quality control");
-            Assert.IsTrue(job1.JobCoreCompetency.value == "Persistence");
+            Assert.IsTrue(job1.JobCoreCompetency.Value == "Persistence");
         }
 
         [TestMethod] //TODO: Two Job objects are considered equal if they have the same id value, even if one or more of the other fields differ || should return False only if id != id ✅
@@ -46,15 +46,26 @@ namespace TechJobTests
         {
             Job job1 = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
             //Assert.AreEqual("ID: \nName: \nEmployer: \nLocation: \nPostion Type: \nCore Competency: ", job1.ToString());
-            Assert.AreEqual("ID: 6\nName: Data not available\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n", job1.ToString());
+            Assert.AreEqual("\nID: 7\nName: Data not available\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n", job1.ToString());
         }
 
-            [TestMethod]
+        [TestMethod]
         public void TestJobToString()
         {
             Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
             //Assert.AreEqual("ID: \nName: \nEmployer: \nLocation: \nPostion Type: \nCore Competency: ", job1.ToString());
-            Assert.AreEqual("ID: 3\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n", job1.ToString());
+            Assert.AreEqual("\nID: 3\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n", job1.ToString());
+
+        }
+
+        [TestMethod]
+        public void TestJobConstructorTwoBlanks()
+        {
+            Job job8 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            string stringifiedJob = job8.ToString();
+            char firstChar = stringifiedJob[0];
+            char secondChar = stringifiedJob[stringifiedJob.Length -1];
+            Assert.AreEqual(secondChar, firstChar);
 
         }
     }

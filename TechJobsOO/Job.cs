@@ -62,56 +62,50 @@ namespace TechJobsOO
             //    }
             //}
 
-            List<object> arguments = new List<object>();
-            arguments.Add(Id);
-            arguments.Add(Name);
+            List<JobField> arguments = new List<JobField>();
+            //arguments.Add(Id);
+            //arguments.Add(Name);
             arguments.Add(EmployerName);
             arguments.Add(EmployerLocation);
             arguments.Add(JobType);
             arguments.Add(JobCoreCompetency);
             //.Actual:< Int32: 3 String: Product tester Employer: ACME Location: Desert PositionType: Quality control CoreCompetency: Persistence >.
+            output += $"\nID: {Id}\n";
 
-            foreach (object arg in arguments)
+            if(Name != "")
+            {
+                output += $"Name: {Name}\n";
+
+            }
+            else
+            {
+                output += $"Name: Data not available\n";
+            }
+            foreach (JobField arg in arguments)
             {
 
-                if (arg != null && arg != "")
+
+                if (arg != null && arg.Value != "")
                 {
-                    //output += $"{arg.GetType().Name}: {arg}\n";
-                    if(arg.GetType().Name == "Int32")
-                    {
-                        output += $"ID: {arg}\n";
-                    }
-                    if (arg.GetType().Name == "String")
-                    {
-                        output += $"Name: {arg}\n";
-                    }
                     if (arg.GetType().Name == "Employer")
                     {
-                        output += $"Employer: {arg}\n";
+                        output += $"Employer: {arg.Value}\n";
                     }
                     if (arg.GetType().Name == "Location")
                     {
-                        output += $"Location: {arg}\n";
+                        output += $"Location: {arg.Value}\n";
                     }
                     if (arg.GetType().Name == "PositionType")
                     {
-                        output += $"Position Type: {arg}\n";
+                        output += $"Position Type: {arg.Value}\n";
                     }
                     if (arg.GetType().Name == "CoreCompetency")
                     {
-                        output += $"Core Competency: {arg}\n";
+                        output += $"Core Competency: {arg.Value}\n";
                     }
                 }
                 else
                 {
-                    if (arg.GetType().Name == "Int32")
-                    {
-                        output += $"ID: Data not available\n";
-                    }
-                    if (arg.GetType().Name == "String")
-                    {
-                        output += $"Name: Data not available\n";
-                    }
                     if (arg.GetType().Name == "Employer")
                     {
                         output += $"Employer: Data not available\n";
@@ -130,9 +124,6 @@ namespace TechJobsOO
                     }
                 }
             }
-
-
-
             return output;
         }
     }

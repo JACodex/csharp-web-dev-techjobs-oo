@@ -1,23 +1,23 @@
 ﻿using System;
 namespace TechJobsOO
 {
-    public class PositionType
+    public class PositionType : JobField
     {
-        public int Id { get; }
-        private static int nextId = 1;
-        public string Value { get; set; }
+        //public int Id { get; }
+        //private static int nextId = 1;
+        //public string Value { get; set; }
 
-        public PositionType()
-        {
-            Id = nextId;
-            nextId++;
-        }
+        //public PositionType()
+        //{
+        //    Id = nextId;
+        //    nextId++;
+        //}
 
         // TODO: Add custom Equals(), GetHashCode(), and ToString() methods. ✅
 
-        public PositionType(string value) : this()
+        public PositionType(string value) : base(value)
         {
-            Value = value;
+            //Value = value;
         }
 
         public override bool Equals(object obj)
@@ -30,7 +30,7 @@ namespace TechJobsOO
         {
             return HashCode.Combine(Value);
         }
-        public override string ToString()
+        public  string ToString()
         {
             return Value;
         }
